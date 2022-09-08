@@ -13,7 +13,7 @@
   }
 }
 .select {
-  padding-left: 10px;
+  background-color: purple !important;
 }
 .App-header {
   background-color: #282c34;
