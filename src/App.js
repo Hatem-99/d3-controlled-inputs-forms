@@ -1,20 +1,27 @@
 
 import './App.css';
-import WarningSign from './cpmponent/WarningSign';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import MyBadge from './cpmponent/MyBadge';
-import SingleBook from './cpmponent/SingleBook';
+import 'react-loading-skeleton/dist/skeleton.css'
+import { Component } from 'react';
 import BookList from './cpmponent/BookList';
+import NavBar from './cpmponent/NavBar';
+import Jumbotrone from './cpmponent/Jumbotrone';
 
 
-function App() {
+class App extends Component {
+
+  state = {
+    selected: false,
+  }
+
+  render(){
   return (
     <div className="App">
-      <WarningSign alert="this is warning for something"/>
-      <MyBadge text="A Badge" color="danger"/>
+      <NavBar/>
+      <Jumbotrone/>
       <BookList/>
     </div>
-  );
+  )}
 }
 
 export default App;
