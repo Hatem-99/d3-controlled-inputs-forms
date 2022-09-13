@@ -1,40 +1,45 @@
-import { Component } from "react";
+import { useState } from "react";
 import { Card, Col } from "react-bootstrap";
 import CommentArea from "./CommentArea";
 
-class SingleBook extends Component {
-  state = {
-    selected: false,
-  };
+const SingleBook = ({triger, objBook}) =>  {
 
-  render() {
+const [selected, setSelected]= useState(false)
+
+
+const handelClick = () => {
+  if (selected === false) {
+    setSelected(true);
+  } else {
+    setSelected(false);;
+  }
+};
     return (
       <>
         <Card
-          className={this.state.selected ? "select" : ""}
           style={{ width: "30rem", height: "30rem" }}
           onClick={() => {
-            this.props.triger();
+            handelClick();
           }}
         >
           <Card.Img
             variant="top"
             height={400}
             width={200}
-            src={this.props.objBook.img}
+            src={objBook.img}
           />
           <Card.Body>
-            <Card.Title>{this.props.objBook.title}</Card.Title>
+            <Card.Title>{objBook.title}</Card.Title>
           </Card.Body>
         </Card>
-        {
+        {selected &&
           <Col md={6}>
-            <CommentArea />
+            <CommentArea bookAsin={objBook.asin}/>
           </Col>
         }
       </>
     );
-  }
+  
 }
 
 export default SingleBook;

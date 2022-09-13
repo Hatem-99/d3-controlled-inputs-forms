@@ -1,20 +1,19 @@
-import { Component } from "react";
+
 import AddComment from "./AddComment";
 import CommentList from "./CommentList";
 
 
-class CommentArea extends Component{
+const CommentArea = ({bookAsin}) => {
 
 
-    render(){
 
         return(
             <>
-            <CommentList bookAsin={this.props.bookAsin}/>
-            <AddComment bookAsin={this.props.bookAsin}/>
+            <CommentList bookAsin={bookAsin}/>
+            <AddComment bookAsin={bookAsin}/>
             </>
         )
-    }
+    
 }
 
 export default CommentArea;
